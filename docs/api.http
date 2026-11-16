@@ -1,0 +1,104 @@
+### Variables
+@baseUrl = http://localhost:3000/api
+@token = PEGA_AQUI_EL_TOKEN
+@productoId = PEGA_AQUI_UN_ID
+
+### ---------------------------------------------------------------
+### 1. Estado del servicio (publica)
+GET {{baseUrl}}/health
+
+### ---------------------------------------------------------------
+### 2. Login: obtiene el JWT (publica)
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@tienda.com",
+  "password": "Admin123!"
+}
+
+### ---------------------------------------------------------------
+### 3. Perfil del usuario autenticado (JWT)
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}
+
+### ---------------------------------------------------------------
+### 4. Listar productos (publica)
+GET {{baseUrl}}/productos
+
+### ---------------------------------------------------------------
+### 5. Listar con paginacion, busqueda y orden (publica)
+GET {{baseUrl}}/productos?page=1&limit=5&search=mouse&sort=precio&order=asc
+
+### ---------------------------------------------------------------
+### 6. Detalle de un producto (publica)
+GET {{baseUrl}}/productos/{{productoId}}
+
+### ---------------------------------------------------------------
+### 7. Crear producto (JWT)
+POST {{baseUrl}}/productos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nombre": "Camara web Full HD",
+  "descripcion": "Camara web 1080p con microfono integrado",
+  "precio": 149900,
+  "stock": 15,
+  "categoria": "Perifericos",
+  "activo": true
+}
+
+### ---------------------------------------------------------------
+### 8. Crear producto sin token -> 401
+POST {{baseUrl}}/productos
+Content-Type: application/json
+
+{
+  "nombre": "Producto sin token",
+  "precio": 1000
+}
+
+### ---------------------------------------------------------------
+### 9. Crear producto con datos invalidos -> 400
+POST {{baseUrl}}/productos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nombre": "ab",
+  "precio": -10,
+  "stock": -5
+}
+
+### ---------------------------------------------------------------
+### 10. Actualizar producto (JWT)
+PUT {{baseUrl}}/productos/{{productoId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "precio": 279900,
+  "stock": 20,
+  "activo": false
+}
+
+### ---------------------------------------------------------------
+### 11. Actualizar producto inexistente -> 404
+PUT {{baseUrl}}/productos/00000000-0000-4000-8000-000000000000
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "precio": 1000
+}
+
+### ---------------------------------------------------------------
+### 12. Eliminar producto (JWT) -> 204
+DELETE {{baseUrl}}/productos/{{productoId}}
+Authorization: Bearer {{token}}
+
+### ---------------------------------------------------------------
+### 13. Detalle de producto inexistente -> 404 (publica)
+GET {{baseUrl}}/productos/00000000-0000-4000-8000-000000000000
