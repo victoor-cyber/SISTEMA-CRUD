@@ -3,6 +3,16 @@
 Actividad práctica del Módulo 3: API REST con CRUD de productos, autenticación JWT,
 CORS, validación de datos, códigos HTTP correctos y estructura por capas.
 
+## Demo en línea
+
+- **Aplicación:** <https://sistema-crud-7vpc.onrender.com>
+- **Repositorio:** <https://github.com/victoor-cyber/SISTEMA-CRUD>
+
+> Las credenciales del administrador en producción se definen con las variables
+> `ADMIN_EMAIL` y `ADMIN_PASSWORD` del servicio en Render.
+> El plan gratuito duerme la app tras 15 minutos sin visitas: la primera carga
+> puede tardar hasta un minuto.
+
 ## Tecnologías
 
 - Node.js 20+ (probado con Node 24)
