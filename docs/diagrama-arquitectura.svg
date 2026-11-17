@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="800" viewBox="0 0 1240 800" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowIndigo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f46e5"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="800" fill="#ffffff"/>
+
+  <!-- Encabezado -->
+  <text x="50" y="56" font-size="30" font-weight="700" fill="#0f172a">Arquitectura del sistema</text>
+  <text x="50" y="86" font-size="15" fill="#64748b">Formulario web (cliente) + API REST por capas (servidor)</text>
+
+  <!-- ================= CLIENTE ================= -->
+  <rect x="40" y="120" width="400" height="610" rx="16" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="64" y="158" font-size="16" font-weight="700" fill="#3730a3" letter-spacing="1">CLIENTE · NAVEGADOR</text>
+  <text x="64" y="182" font-size="13" font-family="Consolas, monospace" fill="#6366f1">public/</text>
+
+  <rect x="64" y="200" width="352" height="78" rx="12" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="84" y="228" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#1e1b4b">index.html</text>
+  <text x="84" y="250" font-size="12.5" fill="#64748b">Login, formulario y tabla de productos</text>
+
+  <rect x="64" y="292" width="352" height="78" rx="12" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="84" y="320" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#1e1b4b">styles.css</text>
+  <text x="84" y="342" font-size="12.5" fill="#64748b">Colores, diseño y responsive</text>
+
+  <rect x="64" y="384" width="352" height="78" rx="12" fill="#ffffff" stroke="#c7d2fe"/>
+  <text x="84" y="412" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#1e1b4b">app.js</text>
+  <text x="84" y="434" font-size="12.5" fill="#64748b">fetch() a la API · guarda el JWT</text>
+
+  <rect x="64" y="486" width="352" height="130" rx="12" fill="#e0e7ff" stroke="#a5b4fc" stroke-dasharray="6 5"/>
+  <text x="84" y="516" font-size="13" font-weight="700" fill="#3730a3">Token JWT</text>
+  <text x="84" y="540" font-size="12" fill="#475569">Se guarda en sessionStorage y viaja</text>
+  <text x="84" y="559" font-size="12" fill="#475569">en cada petición protegida como</text>
+  <text x="84" y="580" font-size="12" font-family="Consolas, monospace" fill="#4338ca">Authorization: Bearer &lt;token&gt;</text>
+
+  <text x="64" y="660" font-size="12" fill="#6366f1">El usuario nunca ve JSON: solo formularios</text>
+  <text x="64" y="680" font-size="12" fill="#6366f1">y botones.</text>
+
+  <!-- Flecha entre paneles -->
+  <line x1="440" y1="400" x2="520" y2="400" stroke="#4f46e5" stroke-width="2.5" marker-start="url(#arrowIndigo)" marker-end="url(#arrowIndigo)"/>
+  <text x="480" y="378" font-size="12" font-weight="600" fill="#4338ca" text-anchor="middle">HTTP · JSON</text>
+  <text x="480" y="428" font-size="11.5" fill="#64748b" text-anchor="middle">Bearer token</text>
+
+  <!-- ================= SERVIDOR ================= -->
+  <rect x="520" y="120" width="680" height="610" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="546" y="158" font-size="16" font-weight="700" fill="#0f172a" letter-spacing="1">SERVIDOR · NODE.JS + EXPRESS</text>
+  <text x="546" y="182" font-size="13" font-family="Consolas, monospace" fill="#64748b">src/ · puerto 3000</text>
+
+  <!-- app.js -->
+  <rect x="566" y="200" width="588" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="586" y="222" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#0f172a">app.js</text>
+  <text x="586" y="242" font-size="12.5" fill="#64748b">CORS · JSON · archivos estáticos · rutas · errores</text>
+
+  <line x1="860" y1="254" x2="860" y2="272" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="566" y="272" width="588" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="586" y="294" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#0f172a">routes/</text>
+  <text x="586" y="314" font-size="12.5" fill="#64748b">6 endpoints: /productos y /auth/login</text>
+
+  <line x1="860" y1="326" x2="860" y2="344" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="566" y="344" width="588" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="586" y="366" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#0f172a">middlewares/</text>
+  <text x="586" y="386" font-size="12.5" fill="#64748b">requireAuth (JWT) · validate · errorHandler</text>
+
+  <line x1="860" y1="398" x2="860" y2="416" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="566" y="416" width="588" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="586" y="438" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#0f172a">controllers/</text>
+  <text x="586" y="458" font-size="12.5" fill="#64748b">Reciben la petición y responden JSON + código HTTP</text>
+
+  <line x1="860" y1="470" x2="860" y2="488" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="566" y="488" width="588" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="586" y="510" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#0f172a">services/</text>
+  <text x="586" y="530" font-size="12.5" fill="#64748b">Reglas del catálogo: buscar, crear, actualizar, eliminar</text>
+
+  <line x1="860" y1="542" x2="860" y2="560" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="566" y="560" width="588" height="54" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="586" y="582" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#0f172a">repositories/</text>
+  <text x="586" y="602" font-size="12.5" fill="#64748b">Único acceso a los datos: leer y escribir</text>
+
+  <line x1="860" y1="614" x2="860" y2="632" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="566" y="632" width="588" height="54" rx="12" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="586" y="654" font-size="14.5" font-weight="700" font-family="Consolas, monospace" fill="#78350f">data/db.json</text>
+  <text x="586" y="674" font-size="12.5" fill="#92400e">Productos y usuarios guardados en un archivo JSON</text>
+
+  <text x="546" y="712" font-size="11.5" fill="#64748b">El JWT se firma en services/auth.service.js y se verifica en middlewares/auth.middleware.js</text>
+</svg>

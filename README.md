@@ -275,6 +275,19 @@ y que el formulario web se sirva en la raíz (26 pruebas en total).
 - **VS Code (REST Client):** abrir `docs/api.http`, hacer login, copiar el token en
   la variable `@token` y ejecutar las peticiones en orden.
 
+## Diagramas
+
+**Arquitectura del sistema** (cliente + servidor por capas):
+
+![Diagrama de arquitectura](docs/diagrama-arquitectura.svg)
+
+**Flujo de una petición** (crear un producto con JWT):
+
+![Diagrama de flujo](docs/diagrama-flujo.svg)
+
+También están en PNG para Word/PowerPoint: `docs/diagrama-arquitectura.png` y
+`docs/diagrama-flujo.png`.
+
 ## Publicar en la web (gratis)
 
 Guía paso a paso en **[DEPLOY.md](DEPLOY.md)**: GitHub + Render (plan gratuito),

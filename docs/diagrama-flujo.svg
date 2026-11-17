@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="850" viewBox="0 0 1240 850" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="850" fill="#ffffff"/>
+
+  <!-- Encabezado -->
+  <text x="50" y="56" font-size="30" font-weight="700" fill="#0f172a">Flujo de una petición: crear producto</text>
+  <text x="50" y="86" font-size="15" fill="#64748b">POST /api/productos · requiere JWT</text>
+
+  <!-- Paso 1 -->
+  <circle cx="70" cy="158" r="17" fill="#4f46e5"/>
+  <text x="70" y="164" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <rect x="104" y="130" width="660" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="124" y="153" font-size="14" font-weight="700" fill="#0f172a">Usuario</text>
+  <text x="124" y="173" font-size="12.5" fill="#64748b">Llena el formulario y pulsa «Guardar producto»</text>
+
+  <line x1="70" y1="175" x2="70" y2="195" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Paso 2 -->
+  <circle cx="70" cy="240" r="17" fill="#4f46e5"/>
+  <text x="70" y="246" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <rect x="104" y="212" width="660" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="124" y="235" font-size="14" font-weight="700" fill="#0f172a">public/app.js</text>
+  <text x="124" y="255" font-size="12.5" fill="#64748b">fetch POST + Authorization: Bearer &lt;token&gt;</text>
+
+  <line x1="70" y1="257" x2="70" y2="277" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Paso 3 -->
+  <circle cx="70" cy="322" r="17" fill="#4f46e5"/>
+  <text x="70" y="328" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <rect x="104" y="294" width="660" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="124" y="317" font-size="14" font-weight="700" fill="#0f172a">src/app.js · Express</text>
+  <text x="124" y="337" font-size="12.5" fill="#64748b">CORS, express.json() y montaje de rutas en /api</text>
+
+  <line x1="70" y1="339" x2="70" y2="359" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Paso 4 -->
+  <circle cx="70" cy="404" r="17" fill="#4f46e5"/>
+  <text x="70" y="410" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <rect x="104" y="376" width="660" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="124" y="399" font-size="14" font-weight="700" fill="#0f172a">middlewares/auth</text>
+  <text x="124" y="419" font-size="12.5" fill="#64748b">jwt.verify(): sin token o inválido → 401</text>
+
+  <line x1="70" y1="421" x2="70" y2="441" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Paso 5 -->
+  <circle cx="70" cy="486" r="17" fill="#4f46e5"/>
+  <text x="70" y="492" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+  <rect x="104" y="458" width="660" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="124" y="481" font-size="14" font-weight="700" fill="#0f172a">validators/product</text>
+  <text x="124" y="501" font-size="12.5" fill="#64748b">nombre 3-100 · precio &gt; 0 · stock ≥ 0 → si falla, 400</text>
+
+  <line x1="70" y1="503" x2="70" y2="523" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Paso 6 -->
+  <circle cx="70" cy="568" r="17" fill="#4f46e5"/>
+  <text x="70" y="574" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+  <rect x="104" y="540" width="660" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="124" y="563" font-size="14" font-weight="700" fill="#0f172a">controllers/product</text>
+  <text x="124" y="583" font-size="12.5" fill="#64748b">Llama al servicio y responde 201 + cabecera Location</text>
+
+  <line x1="70" y1="585" x2="70" y2="605" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Paso 7 -->
+  <circle cx="70" cy="650" r="17" fill="#4f46e5"/>
+  <text x="70" y="656" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">7</text>
+  <rect x="104" y="622" width="660" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="124" y="645" font-size="14" font-weight="700" fill="#0f172a">services + repositories</text>
+  <text x="124" y="665" font-size="12.5" fill="#64748b">Genera id y fechas, y guarda en data/db.json</text>
+
+  <line x1="70" y1="667" x2="70" y2="687" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Paso 8 -->
+  <circle cx="70" cy="732" r="17" fill="#059669"/>
+  <text x="70" y="738" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">8</text>
+  <rect x="104" y="704" width="660" height="56" rx="12" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="124" y="727" font-size="14" font-weight="700" fill="#065f46">Navegador</text>
+  <text x="124" y="747" font-size="12.5" fill="#047857">Aviso «Producto creado (HTTP 201)» y recarga la tabla</text>
+
+  <!-- Panel de salidas -->
+  <rect x="820" y="130" width="360" height="330" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="844" y="164" font-size="15" font-weight="700" fill="#0f172a">Salidas posibles</text>
+
+  <rect x="844" y="184" width="58" height="24" rx="12" fill="#fef2f2"/>
+  <text x="873" y="201" font-size="12.5" font-weight="700" fill="#b91c1c" text-anchor="middle">401</text>
+  <text x="914" y="194" font-size="13" font-weight="600" fill="#0f172a">Token ausente o inválido</text>
+  <text x="914" y="212" font-size="12" fill="#64748b">Corta el flujo antes de validar</text>
+
+  <rect x="844" y="250" width="58" height="24" rx="12" fill="#fffbeb"/>
+  <text x="873" y="267" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">400</text>
+  <text x="914" y="260" font-size="13" font-weight="600" fill="#0f172a">Datos inválidos</text>
+  <text x="914" y="278" font-size="12" fill="#64748b">Devuelve details por campo</text>
+
+  <rect x="844" y="316" width="58" height="24" rx="12" fill="#ecfdf5"/>
+  <text x="873" y="333" font-size="12.5" font-weight="700" fill="#047857" text-anchor="middle">201</text>
+  <text x="914" y="326" font-size="13" font-weight="600" fill="#0f172a">Producto creado</text>
+  <text x="914" y="344" font-size="12" fill="#64748b">Location + objeto creado</text>
+
+  <text x="844" y="392" font-size="12" fill="#64748b">Cualquier error se responde con el</text>
+  <text x="844" y="412" font-size="12" fill="#64748b">mismo formato:</text>
+  <text x="844" y="436" font-size="11.5" font-family="Consolas, monospace" fill="#334155">{ error: { status, message } }</text>
+
+  <!-- Panel otros metodos -->
+  <rect x="820" y="490" width="360" height="230" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="844" y="524" font-size="15" font-weight="700" fill="#0f172a">Los demás endpoints</text>
+
+  <text x="844" y="556" font-size="12.5" fill="#0f172a"><tspan font-weight="700">GET</tspan>  listar y detalle · público · 200 / 404</text>
+  <text x="844" y="582" font-size="12.5" fill="#0f172a"><tspan font-weight="700">PUT</tspan>  actualizar · JWT · 200 / 400 / 404</text>
+  <text x="844" y="608" font-size="12.5" fill="#0f172a"><tspan font-weight="700">DELETE</tspan>  eliminar · JWT · 204 / 404</text>
+  <text x="844" y="634" font-size="12.5" fill="#0f172a"><tspan font-weight="700">POST</tspan>  login · público · 200 / 401</text>
+
+  <text x="844" y="672" font-size="11.5" fill="#64748b">El formulario muestra el código real en cada aviso.</text>
+
+  <!-- Nota final -->
+  <rect x="50" y="790" width="1130" height="40" rx="10" fill="#eef2ff"/>
+  <text x="70" y="815" font-size="12.5" fill="#3730a3">Cada capa hace una sola cosa: ruta → middleware → controlador → servicio → repositorio. Eso es la estructura por capas.</text>
+</svg>
